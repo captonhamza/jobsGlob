@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "608210879638",
+    "project_id": "jobs-glob",
+    "storage_bucket": "jobs-glob.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608210879638:android:405fd89d901ebacd422eb7",
+        "android_client_info": {
+          "package_name": "com.jobs.glob.pvt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtsnu-0UwkgmFu_JZLuuMB32b0henWozY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
