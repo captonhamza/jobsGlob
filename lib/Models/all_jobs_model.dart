@@ -24,6 +24,7 @@ class GetAllJobsModel {
 }
 
 class AllJobList {
+  final int? status;
   final int? id;
   final String? title;
   final String? description;
@@ -40,6 +41,7 @@ class AllJobList {
   final String? city;
 
   AllJobList({
+    this.status,
     this.id,
     this.title,
     this.description,
@@ -57,7 +59,8 @@ class AllJobList {
   });
 
   AllJobList.fromJson(Map<String, dynamic> json)
-      : id = json['id'] as int?,
+      : status = json['status'] as int?,
+        id = json['id'] as int?,
         title = json['title'] as String?,
         description = json['description'] as String?,
         career = json['career'] as int?,
@@ -73,6 +76,7 @@ class AllJobList {
         city = json['city'] as String?;
 
   Map<String, dynamic> toJson() => {
+        'status': status,
         'id': id,
         'title': title,
         'description': description,

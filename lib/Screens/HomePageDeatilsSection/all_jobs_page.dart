@@ -48,6 +48,8 @@ class _AllJobsPageState extends State<AllJobsPage> {
     setState(() {
       isLoading = true;
     });
+    prefs = await SharedPreferences.getInstance();
+    int? userId = await prefs!.getInt("userID");
 
     if (!await InternetConnectionChecker().hasConnection) {
       setState(() {
@@ -70,11 +72,13 @@ class _AllJobsPageState extends State<AllJobsPage> {
         var response = await http.get(
           widget.isCategorySide == true
               ? Uri.parse(
-                  '${Helper().get_api_urlold()}CatJobs/${widget.CategoryId}')
-              : Uri.parse('${Helper().get_api_urlold()}AllJobs'),
+                  '${Helper().get_api_urlold()}CatJobs/${widget.CategoryId}/$userId')
+              : Uri.parse('${Helper().get_api_urlold()}AllJobs/$userId'),
         );
 
-        //  print(response.body);
+        print(Uri.parse('${Helper().get_api_urlold()}AllJobs/$userId'));
+
+        print(response.body);
 
         if (response.statusCode == 200) {
           var getResponseData = jsonDecode(response.body);
@@ -248,48 +252,54 @@ class _AllJobsPageState extends State<AllJobsPage> {
                                               ),
                                             ],
                                           ),
-                                          InkWell(
-                                            onTap: () async {
-                                              prefs = await SharedPreferences
-                                                  .getInstance();
-                                              int? ProfileStatus = prefs!
-                                                  .getInt("profileStatus");
+                                          allJobList[index].status! > 0
+                                              ? Center()
+                                              : InkWell(
+                                                  onTap: () async {
+                                                    prefs =
+                                                        await SharedPreferences
+                                                            .getInstance();
+                                                    int? ProfileStatus = prefs!
+                                                        .getInt(
+                                                            "profileStatus");
 
-                                              if (ProfileStatus == 1) {
-                                                ApplyJobApi(
-                                                    allJobList[index].id);
-                                              } else if (ProfileStatus == 0) {
-                                                _showDialog(
-                                                    context,
-                                                    "Please wait until your profile will be approved by Admin",
-                                                    false);
-                                              } else {
-                                                _showDialog(
-                                                    context,
-                                                    "Please complete your profile first!",
-                                                    false);
-                                              }
-                                            },
-                                            child: Container(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                  horizontal: 20,
-                                                  vertical: 8,
-                                                ),
-                                                decoration: BoxDecoration(
-                                                    color:
-                                                        Colors.purple.shade300,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            3)),
-                                                child: Text(
-                                                  "Apply",
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      color: Colors.white),
-                                                )),
-                                          )
+                                                    if (ProfileStatus == 1) {
+                                                      ApplyJobApi(
+                                                          allJobList[index].id);
+                                                    } else if (ProfileStatus ==
+                                                        0) {
+                                                      _showDialog(
+                                                          context,
+                                                          "Please wait until your profile will be approved by Admin",
+                                                          false);
+                                                    } else {
+                                                      _showDialog(
+                                                          context,
+                                                          "Please complete your profile first!",
+                                                          false);
+                                                    }
+                                                  },
+                                                  child: Container(
+                                                      padding: const EdgeInsets
+                                                          .symmetric(
+                                                        horizontal: 20,
+                                                        vertical: 8,
+                                                      ),
+                                                      decoration: BoxDecoration(
+                                                          color: Colors
+                                                              .purple.shade300,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(3)),
+                                                      child: Text(
+                                                        "Apply",
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            color:
+                                                                Colors.white),
+                                                      )),
+                                                )
                                         ],
                                       ),
                                     ),

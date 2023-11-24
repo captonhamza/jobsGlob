@@ -275,29 +275,36 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
                                       Navigator.pop(context);
                                     },
                                   )
-                                : CustomButton(
-                                    text: "Apply",
-                                    onPressed: () async {
-                                      prefs =
-                                          await SharedPreferences.getInstance();
-                                      int? ProfileStatus =
-                                          prefs!.getInt("profileStatus");
+                                : widget.allJobListObject!.status! > 0
+                                    ? CustomButton(
+                                        text: "Close",
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                      )
+                                    : CustomButton(
+                                        text: "Apply",
+                                        onPressed: () async {
+                                          prefs = await SharedPreferences
+                                              .getInstance();
+                                          int? ProfileStatus =
+                                              prefs!.getInt("profileStatus");
 
-                                      if (ProfileStatus == 1) {
-                                        ApplyJobApi();
-                                      } else if (ProfileStatus == 0) {
-                                        _showDialog(
-                                            context,
-                                            "Please wait until your profile will be approved by Admin",
-                                            false);
-                                      } else {
-                                        _showDialog(
-                                            context,
-                                            "Please complete your profile first!",
-                                            false);
-                                      }
-                                    },
-                                  ),
+                                          if (ProfileStatus == 1) {
+                                            ApplyJobApi();
+                                          } else if (ProfileStatus == 0) {
+                                            _showDialog(
+                                                context,
+                                                "Please wait until your profile will be approved by Admin",
+                                                false);
+                                          } else {
+                                            _showDialog(
+                                                context,
+                                                "Please complete your profile first!",
+                                                false);
+                                          }
+                                        },
+                                      ),
                       ],
                     ),
                   ),
