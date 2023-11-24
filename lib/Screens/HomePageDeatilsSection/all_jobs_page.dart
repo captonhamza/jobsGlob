@@ -76,8 +76,6 @@ class _AllJobsPageState extends State<AllJobsPage> {
               : Uri.parse('${Helper().get_api_urlold()}AllJobs/$userId'),
         );
 
-        print(Uri.parse('${Helper().get_api_urlold()}AllJobs/$userId'));
-
         print(response.body);
 
         if (response.statusCode == 200) {
