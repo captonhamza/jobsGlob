@@ -1003,7 +1003,7 @@ class _DocumentDetailPageState extends State<DocumentDetailPage> {
                         children: [
                           Expanded(
                               child: Text(
-                                  "PHOTO OF RESIDENT  (IF NOT UK CITIZEN)")),
+                                  "RESIDENT PERMIT PHOTO (IF NOT CITIZEN)")),
                         ],
                       ),
                     ),
