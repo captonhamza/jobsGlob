@@ -57,6 +57,11 @@ class _AddressDeatilsPageState extends State<AddressDeatilsPage> {
 
   getDataBaseRecord() async {
     final countryData = json.decode(AllCountryListJosn);
+    setState(() {
+      countryList.sort((a, b) => a.countryName.compareTo(b.countryName));
+
+      // cityData.sort((a, b) => a['city_name'].compareTo(b['city_name']));
+    });
     final cityData = json.decode(AllCityListJosn);
 
     matchDataUserLoginDeatils = await database.getData();
@@ -80,6 +85,9 @@ class _AddressDeatilsPageState extends State<AddressDeatilsPage> {
           .map((data) =>
               CityModel(data['id'], data['city_name'], data['region_id']))
           .toList();
+      setState(() {
+        cityList.sort((a, b) => a.cityName.compareTo(b.cityName));
+      });
 
       selectedTownValue = cityList.firstWhere(
           (city) => city.id.toString() == alreadSaveCity,
@@ -101,8 +109,13 @@ class _AddressDeatilsPageState extends State<AddressDeatilsPage> {
 
   getDataFromApi() async {
     matchDataUserLoginDeatils = await database.getData();
-    final countryData = json.decode(AllCountryListJosn);
-    final cityData = json.decode(AllCityListJosn);
+    var countryData = json.decode(AllCountryListJosn);
+    var cityData = json.decode(AllCityListJosn);
+    setState(() {
+      countryList.sort((a, b) => a.countryName.compareTo(b.countryName));
+
+      // cityData.sort((a, b) => a['city_name'].compareTo(b['city_name']));
+    });
 
     addressTextController.text = widget.candidateProfileData!.address ?? "";
 
@@ -122,6 +135,10 @@ class _AddressDeatilsPageState extends State<AddressDeatilsPage> {
         .map((data) =>
             CityModel(data['id'], data['city_name'], data['region_id']))
         .toList();
+
+    setState(() {
+      cityList.sort((a, b) => a.cityName.compareTo(b.cityName));
+    });
 
     selectedTownValue = cityList.firstWhere(
         (city) => city.cityName.toString() == alreadSaveCity,
@@ -208,6 +225,11 @@ class _AddressDeatilsPageState extends State<AddressDeatilsPage> {
                                       .map((data) => CityModel(data['id'],
                                           data['city_name'], data['region_id']))
                                       .toList();
+
+                              setState(() {
+                                cityList.sort(
+                                    (a, b) => a.cityName.compareTo(b.cityName));
+                              });
                             });
                           },
                           items: countryList

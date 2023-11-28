@@ -234,7 +234,7 @@ class _DocumentDetailPageState extends State<DocumentDetailPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 12.0),
                       child: DropdownButtonHideUnderline(
                         child: DropdownButton<String>(
-                          hint: const Text("UK Driving Licence"),
+                          hint: const Text("Driving Licence"),
                           dropdownColor: AppColor.goldenColor,
                           value: selectedUkDrivingLicess,
                           onChanged: (newValue) {
@@ -1003,7 +1003,7 @@ class _DocumentDetailPageState extends State<DocumentDetailPage> {
                         children: [
                           Expanded(
                               child: Text(
-                                  "PHOTO OF PERMI PHOTO (IF NOT UK CITIZEN)")),
+                                  "PHOTO OF RESIDENT  (IF NOT UK CITIZEN)")),
                         ],
                       ),
                     ),

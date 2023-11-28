@@ -72,6 +72,12 @@ class _CompanyProfilePageState extends ConsumerState<CompanyProfilePage> {
   }
 
   getAlreadyUploadRecordData() async {
+    setState(() {
+      countryList.sort((a, b) => a.countryName.compareTo(b.countryName));
+
+      // cityData.sort((a, b) => a['city_name'].compareTo(b['city_name']));
+    });
+
     if (widget.candidateProfileData != null) {
       companyNameController.text =
           widget.candidateProfileData!.companyName.toString();
@@ -105,6 +111,9 @@ class _CompanyProfilePageState extends ConsumerState<CompanyProfilePage> {
           .map((data) =>
               CityModel(data['id'], data['city_name'], data['region_id']))
           .toList();
+      setState(() {
+        cityList.sort((a, b) => a.cityName.compareTo(b.cityName));
+      });
 
       selectedCityValue = cityList.firstWhere(
           (city) => city.cityName == alreadSaveCity,
@@ -554,6 +563,10 @@ class _CompanyProfilePageState extends ConsumerState<CompanyProfilePage> {
                                     .map((data) => CityModel(data['id'],
                                         data['city_name'], data['region_id']))
                                     .toList();
+                                setState(() {
+                                  cityList.sort((a, b) =>
+                                      a.cityName.compareTo(b.cityName));
+                                });
                               });
                             },
                             items: countryList
