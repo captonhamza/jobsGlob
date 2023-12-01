@@ -27,15 +27,15 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>We need access to your device's camera to take photos and videos.</string>
+	<string>To set or update your profile picture and document image, we require access to your device's camera for capturing photos and videos.</string>
 	<key>NSFileProviderDomainUsageDescription</key>
 	<string>We need access to your files to provide file management features.</string>
 	<key>NSInternetPermission</key>
 	<string>We need internet access to retrieve and send data over the network.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>We need access to your device's microphone for recording audio.</string>
+	<string>To record Short Interview We need access to your device's microphone for recording audio.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We need access to your photos to select and upload images.</string>
+	<string>To set or update your profile picture and document image, we require access to your device's Gallery for capturing photos and videos.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>

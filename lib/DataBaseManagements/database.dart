@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart';
@@ -239,5 +240,26 @@ class DatabaseHelper {
       where: 'id = ?',
       whereArgs: [id],
     );
+  }
+
+  Future<void> resetDatabase() async {
+    // Step 1: Open the database
+    final databasePath = await getDatabasesPath();
+    final path = join(databasePath, 'jobGlobal.db');
+
+    // Step 1: Close existing database connection (if open)
+    await databaseFactory.deleteDatabase(path);
+
+    // Step 2: Delete the database file
+    final file = File(path);
+    await file.delete();
+
+    // Step 3: Open a new connection (this will recreate the database)
+    final newDatabase = await openDatabase(path);
+    // Use the new database instance as needed
+    // ...
+
+    // Close the new database instance when done
+    await newDatabase.close();
   }
 }
