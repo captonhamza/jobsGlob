@@ -244,22 +244,18 @@ class DatabaseHelper {
 
   Future<void> resetDatabase() async {
     // Step 1: Open the database
-    final databasePath = await getDatabasesPath();
-    final path = join(databasePath, 'jobGlobal.db');
+    try {
+      final databasePath = await getDatabasesPath();
+      final path = join(databasePath, 'jobGlobal.db');
 
-    // Step 1: Close existing database connection (if open)
-    await databaseFactory.deleteDatabase(path);
+      await databaseFactory.deleteDatabase(path);
 
-    // Step 2: Delete the database file
-    final file = File(path);
-    await file.delete();
-
-    // Step 3: Open a new connection (this will recreate the database)
-    final newDatabase = await openDatabase(path);
-    // Use the new database instance as needed
-    // ...
-
-    // Close the new database instance when done
-    await newDatabase.close();
+      final file = File(path);
+      await file.delete();
+      final newDatabase = await openDatabase(path);
+      await newDatabase.close();
+    } catch (e) {
+      print(e.toString());
+    }
   }
 }
