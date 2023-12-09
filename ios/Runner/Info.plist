@@ -13,7 +13,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
-	<string>6.0</string>
+	<string>1.0.2</string>
 	<key>CFBundleName</key>
 	<string>Jobs Glob</string>
 	<key>CFBundlePackageType</key>
@@ -23,19 +23,19 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<string>8</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>To set or update your profile picture and document image, we require access to your device's camera for capturing photos and videos.</string>
+	<string>To set or update your profile picture and document image, we require access to your device&apos;s camera for capturing photos and videos.</string>
 	<key>NSFileProviderDomainUsageDescription</key>
 	<string>We need access to your files to provide file management features.</string>
 	<key>NSInternetPermission</key>
 	<string>We need internet access to retrieve and send data over the network.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>To record Short Interview We need access to your device's microphone for recording audio.</string>
+	<string>To record Short Interview We need access to your device&apos;s microphone for recording audio.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>To set or update your profile picture and document image, we require access to your device's Gallery for capturing photos and videos.</string>
+	<string>To set or update your profile picture and document image, we require access to your device&apos;s Gallery for capturing photos and videos.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>
