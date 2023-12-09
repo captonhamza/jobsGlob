@@ -193,61 +193,61 @@ class _PersonDeatilsPageState extends State<PersonDeatilsPage> {
                                 constraints:
                                     const BoxConstraints(maxWidth: 300.0),
                                 child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    InkWell(
-                                      onTap: () async {
-                                        Navigator.pop(context);
-                                        final PermissionStatus status =
-                                            await Permission.camera.status;
-                                        if (status.isGranted) {
-                                          var pickImage = await _getImage(
-                                              ImageSource.camera);
-                                          if (pickImage != null) {
-                                            setState(() {
-                                              ProfileImageUrl = "";
-                                              profileImage = pickImage;
-                                            });
-                                          }
-                                        } else if (status.isDenied) {
-                                          Map<Permission, PermissionStatus>
-                                              statuses = await [
-                                            Permission.storage,
-                                            Permission.camera,
-                                            Permission.photos,
-                                          ].request();
-                                        } else {
-                                          final snackBar = SnackBar(
-                                              behavior:
-                                                  SnackBarBehavior.floating,
-                                              backgroundColor:
-                                                  AppColor.goldenColor,
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 10,
-                                                      vertical: 10),
-                                              content: const Text(
-                                                "Please Allow Camera Permssion!",
-                                                style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
-                                              ));
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(snackBar);
-                                        }
-                                      },
-                                      child: const Row(
-                                        children: [
-                                          Icon(Icons.camera_alt),
-                                          SizedBox(
-                                            width: 15,
-                                          ),
-                                          Text("Camera"),
-                                        ],
-                                      ),
-                                    ),
+                                    // InkWell(
+                                    //   onTap: () async {
+                                    //     Navigator.pop(context);
+                                    //     final PermissionStatus status =
+                                    //         await Permission.camera.status;
+                                    //     if (status.isGranted) {
+                                    //       var pickImage = await _getImage(
+                                    //           ImageSource.camera);
+                                    //       if (pickImage != null) {
+                                    //         setState(() {
+                                    //           ProfileImageUrl = "";
+                                    //           profileImage = pickImage;
+                                    //         });
+                                    //       }
+                                    //     } else if (status.isDenied) {
+                                    //       Map<Permission, PermissionStatus>
+                                    //           statuses = await [
+                                    //         Permission.storage,
+                                    //         Permission.camera,
+                                    //         Permission.photos,
+                                    //       ].request();
+                                    //     } else {
+                                    //       final snackBar = SnackBar(
+                                    //           behavior:
+                                    //               SnackBarBehavior.floating,
+                                    //           backgroundColor:
+                                    //               AppColor.goldenColor,
+                                    //           padding:
+                                    //               const EdgeInsets.symmetric(
+                                    //                   horizontal: 10,
+                                    //                   vertical: 10),
+                                    //           content: const Text(
+                                    //             "Please Allow Camera Permssion!",
+                                    //             style: TextStyle(
+                                    //               color: Colors.black,
+                                    //               fontWeight: FontWeight.normal,
+                                    //             ),
+                                    //           ));
+                                    //       ScaffoldMessenger.of(context)
+                                    //           .showSnackBar(snackBar);
+                                    //     }
+                                    //   },
+                                    //   child: const Row(
+                                    //     children: [
+                                    //       Icon(Icons.camera_alt),
+                                    //       SizedBox(
+                                    //         width: 15,
+                                    //       ),
+                                    //       Text("Camera"),
+                                    //     ],
+                                    //   ),
+                                    // ),
+
                                     InkWell(
                                       onTap: () async {
                                         Navigator.pop(context);

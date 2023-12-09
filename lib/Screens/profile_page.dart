@@ -236,7 +236,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                       floating: false,
 
                       flexibleSpace: FlexibleSpaceBar(
-                          title: const Text("Profile Deatil",
+                          title: const Text("Profile Detail",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.0,
