@@ -368,14 +368,12 @@ class _PersonDeatilsPageState extends State<PersonDeatilsPage> {
                               (AllCategoryData value) =>
                                   DropdownMenuItem<AllCategoryData>(
                                 value: value,
-                                child: SizedBox(
-                                  width: 100,
-                                  child: Text(
-                                    value.name!,
-                                    style: const TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal),
-                                  ),
+                                child: Text(
+                                  value.name!,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: const TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.normal),
                                 ),
                               ),
                             )
@@ -427,14 +425,12 @@ class _PersonDeatilsPageState extends State<PersonDeatilsPage> {
                             .map<DropdownMenuItem<String>>(
                               (String value) => DropdownMenuItem<String>(
                                 value: value,
-                                child: SizedBox(
-                                  width: 100,
-                                  child: Text(
-                                    value,
-                                    style: const TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal),
-                                  ),
+                                child: Text(
+                                  value,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: const TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.normal),
                                 ),
                               ),
                             )

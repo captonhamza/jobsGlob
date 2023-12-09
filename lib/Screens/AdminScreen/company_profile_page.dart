@@ -574,14 +574,12 @@ class _CompanyProfilePageState extends ConsumerState<CompanyProfilePage> {
                                   (CountryModel value) =>
                                       DropdownMenuItem<CountryModel>(
                                     value: value,
-                                    child: SizedBox(
-                                      width: 100,
-                                      child: Text(
-                                        value.countryName,
-                                        style: const TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.normal),
-                                      ),
+                                    child: Text(
+                                      value.countryName,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.normal),
                                     ),
                                   ),
                                 )
@@ -616,7 +614,10 @@ class _CompanyProfilePageState extends ConsumerState<CompanyProfilePage> {
                             items: cityList.map((city) {
                               return DropdownMenuItem<CityModel>(
                                 value: city,
-                                child: Text(city.cityName),
+                                child: Text(
+                                  city.cityName,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               );
                             }).toList(),
                           ),

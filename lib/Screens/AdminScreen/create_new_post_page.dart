@@ -176,14 +176,12 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
                                   (AllCategoryData value) =>
                                       DropdownMenuItem<AllCategoryData>(
                                     value: value,
-                                    child: SizedBox(
-                                      width: 100,
-                                      child: Text(
-                                        value.name!,
-                                        style: const TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.normal),
-                                      ),
+                                    child: Text(
+                                      value.name!,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.normal),
                                     ),
                                   ),
                                 )
@@ -223,14 +221,12 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
                                 .map<DropdownMenuItem<String>>(
                                   (String value) => DropdownMenuItem<String>(
                                     value: value,
-                                    child: SizedBox(
-                                      width: 100,
-                                      child: Text(
-                                        value,
-                                        style: const TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.normal),
-                                      ),
+                                    child: Text(
+                                      value,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.normal),
                                     ),
                                   ),
                                 )
@@ -300,14 +296,12 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
                                   (CountryModel value) =>
                                       DropdownMenuItem<CountryModel>(
                                     value: value,
-                                    child: SizedBox(
-                                      width: 100,
-                                      child: Text(
-                                        value.countryName,
-                                        style: const TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.normal),
-                                      ),
+                                    child: Text(
+                                      value.countryName,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: const TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.normal),
                                     ),
                                   ),
                                 )
@@ -342,7 +336,10 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
                             items: cityList.map((city) {
                               return DropdownMenuItem<CityModel>(
                                 value: city,
-                                child: Text(city.cityName),
+                                child: Text(
+                                  city.cityName,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               );
                             }).toList(),
                           ),

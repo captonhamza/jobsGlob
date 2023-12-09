@@ -203,14 +203,11 @@ class _DocumentDetailPageState extends State<DocumentDetailPage> {
                               .map<DropdownMenuItem<String>>(
                                 (String value) => DropdownMenuItem<String>(
                                   value: value,
-                                  child: SizedBox(
-                                    width: 100,
-                                    child: Text(
-                                      value,
-                                      style: const TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.normal),
-                                    ),
+                                  child: Text(
+                                    value,
+                                    style: const TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.normal),
                                   ),
                                 ),
                               )
