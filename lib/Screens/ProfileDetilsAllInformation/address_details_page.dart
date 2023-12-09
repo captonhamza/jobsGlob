@@ -237,12 +237,14 @@ class _AddressDeatilsPageState extends State<AddressDeatilsPage> {
                                 (CountryModel value) =>
                                     DropdownMenuItem<CountryModel>(
                                   value: value,
-                                  child: Text(
-                                    value.countryName,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: const TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal),
+                                  child: SizedBox(
+                                    width: 250,
+                                    child: Text(
+                                      value.countryName,
+                                      style: const TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.normal),
+                                    ),
                                   ),
                                 ),
                               )
@@ -277,10 +279,8 @@ class _AddressDeatilsPageState extends State<AddressDeatilsPage> {
                           items: cityList.map((city) {
                             return DropdownMenuItem<CityModel>(
                               value: city,
-                              child: Text(
-                                city.cityName,
-                                overflow: TextOverflow.ellipsis,
-                              ),
+                              child: SizedBox(
+                                  width: 250, child: Text(city.cityName)),
                             );
                           }).toList(),
                         ),
@@ -321,10 +321,8 @@ class _AddressDeatilsPageState extends State<AddressDeatilsPage> {
                           items: cityList.map((city) {
                             return DropdownMenuItem<CityModel>(
                               value: city,
-                              child: Text(
-                                city.cityName,
-                                overflow: TextOverflow.ellipsis,
-                              ),
+                              child: SizedBox(
+                                  width: 250, child: Text(city.cityName)),
                             );
                           }).toList(),
                         ),
@@ -359,12 +357,14 @@ class _AddressDeatilsPageState extends State<AddressDeatilsPage> {
                                 (CountryModel value) =>
                                     DropdownMenuItem<CountryModel>(
                                   value: value,
-                                  child: Text(
-                                    value.countryName,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: const TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.normal),
+                                  child: SizedBox(
+                                    width: 250,
+                                    child: Text(
+                                      value.countryName,
+                                      style: const TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.normal),
+                                    ),
                                   ),
                                 ),
                               )
