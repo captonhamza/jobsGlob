@@ -1,5 +1,6 @@
 import 'dart:io';
-
+import 'dart:ui';
+import 'dart:ui' as ui;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_holo_date_picker/flutter_holo_date_picker.dart';
@@ -136,7 +137,15 @@ class _PersonDeatilsPageState extends State<PersonDeatilsPage> {
   Future<File> _getImage(ImageSource source) async {
     final image = await ImagePicker().pickImage(source: source);
 
-    return File(image!.path);
+    final ByteData data = await File(image!.path)
+        .readAsBytes()
+        .then((value) => value.buffer.asByteData());
+    final ui.Codec codec =
+        await ui.instantiateImageCodec(Uint8List.view(data.buffer));
+    final ui.Image imageData = (await codec.getNextFrame()).image;
+
+    // Image is valid, proceed with returning the File object.
+    return File(image.path);
   }
 
   @override

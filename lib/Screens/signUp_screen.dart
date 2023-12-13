@@ -127,6 +127,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
         toolbarHeight: 40,
@@ -201,15 +202,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         Container(
                           width: double.infinity,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8.0),
-                            color: AppColor
-                                .goldenColor, // Background color of the dropdown
-                          ),
+                              borderRadius: BorderRadius.circular(8.0),
+                              border: Border.all(
+                                  width: 1, color: AppColor.goldenColor)
+                              // Background color of the dropdown
+                              ),
                           padding: const EdgeInsets.symmetric(horizontal: 12.0),
                           child: DropdownButtonHideUnderline(
                             child: DropdownButton<String>(
-                              dropdownColor: Colors.black,
-                              iconSize: 0,
+                              icon: Icon(
+                                (Icons.keyboard_arrow_down_sharp),
+                                color: Colors.black,
+                              ),
                               value: selectedValue,
                               onChanged: (newValue) {
                                 setState(() {
@@ -224,11 +228,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     (String value) => DropdownMenuItem<String>(
                                       value: value,
                                       child: SizedBox(
-                                        width: 100,
+                                        width: 250,
                                         child: Text(
                                           value,
                                           style: const TextStyle(
-                                              color: Colors.white,
+                                              color: Colors.black,
                                               fontWeight: FontWeight.normal),
                                         ),
                                       ),

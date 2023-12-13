@@ -155,6 +155,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
@@ -182,8 +183,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Positioned(
             left: 0,
             right: 0,
-            bottom: 30,
-            top: 0,
+            top: 10,
             child: Form(
               key: _formKey,
               child: Center(
