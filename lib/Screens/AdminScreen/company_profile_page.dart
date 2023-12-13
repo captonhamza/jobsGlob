@@ -356,8 +356,7 @@ class _CompanyProfilePageState extends ConsumerState<CompanyProfilePage> {
                                                 });
                                               }
                                             } else if (status.isDenied) {
-                                              Map<Permission, PermissionStatus>
-                                                  statuses = await [
+                                              await [
                                                 Permission.storage,
                                                 Permission.camera,
                                                 Permission.photos,
@@ -402,7 +401,6 @@ class _CompanyProfilePageState extends ConsumerState<CompanyProfilePage> {
                                                     .manageExternalStorage
                                                     .status;
                                             if (status.isGranted) {
-                                            } else if (status.isDenied) {
                                               var pickImage = await _getImage(
                                                   ImageSource.gallery);
                                               if (pickImage != null) {
@@ -411,8 +409,8 @@ class _CompanyProfilePageState extends ConsumerState<CompanyProfilePage> {
                                                   profileImage = pickImage;
                                                 });
                                               }
-                                              Map<Permission, PermissionStatus>
-                                                  statuses = await [
+                                            } else if (status.isDenied) {
+                                              await [
                                                 Permission.storage,
                                                 Permission.camera,
                                                 Permission.photos,

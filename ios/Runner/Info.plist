@@ -26,6 +26,13 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIRequiredDeviceCapabilities</key>
+    <array>
+    <string>armv7</string>
+    <string>arm64</string>
+    <!-- ... other required capabilities ... -->
+    <string>camera</string>
+    </array>
 	<key>NSCameraUsageDescription</key>
 	<string>To set or update your profile picture and document image, we require access to your device&apos;s camera for capturing photos and videos.</string>
 	<key>NSFileProviderDomainUsageDescription</key>

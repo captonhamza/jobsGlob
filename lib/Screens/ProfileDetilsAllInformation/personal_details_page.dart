@@ -137,15 +137,7 @@ class _PersonDeatilsPageState extends State<PersonDeatilsPage> {
   Future<File> _getImage(ImageSource source) async {
     final image = await ImagePicker().pickImage(source: source);
 
-    final ByteData data = await File(image!.path)
-        .readAsBytes()
-        .then((value) => value.buffer.asByteData());
-    final ui.Codec codec =
-        await ui.instantiateImageCodec(Uint8List.view(data.buffer));
-    final ui.Image imageData = (await codec.getNextFrame()).image;
-
-    // Image is valid, proceed with returning the File object.
-    return File(image.path);
+    return File(image!.path);
   }
 
   @override
@@ -204,59 +196,57 @@ class _PersonDeatilsPageState extends State<PersonDeatilsPage> {
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    // InkWell(
-                                    //   onTap: () async {
-                                    //     Navigator.pop(context);
-                                    //     final PermissionStatus status =
-                                    //         await Permission.camera.status;
-                                    //     if (status.isGranted) {
-                                    //       var pickImage = await _getImage(
-                                    //           ImageSource.camera);
-                                    //       if (pickImage != null) {
-                                    //         setState(() {
-                                    //           ProfileImageUrl = "";
-                                    //           profileImage = pickImage;
-                                    //         });
-                                    //       }
-                                    //     } else if (status.isDenied) {
-                                    //       Map<Permission, PermissionStatus>
-                                    //           statuses = await [
-                                    //         Permission.storage,
-                                    //         Permission.camera,
-                                    //         Permission.photos,
-                                    //       ].request();
-                                    //     } else {
-                                    //       final snackBar = SnackBar(
-                                    //           behavior:
-                                    //               SnackBarBehavior.floating,
-                                    //           backgroundColor:
-                                    //               AppColor.goldenColor,
-                                    //           padding:
-                                    //               const EdgeInsets.symmetric(
-                                    //                   horizontal: 10,
-                                    //                   vertical: 10),
-                                    //           content: const Text(
-                                    //             "Please Allow Camera Permssion!",
-                                    //             style: TextStyle(
-                                    //               color: Colors.black,
-                                    //               fontWeight: FontWeight.normal,
-                                    //             ),
-                                    //           ));
-                                    //       ScaffoldMessenger.of(context)
-                                    //           .showSnackBar(snackBar);
-                                    //     }
-                                    //   },
-                                    //   child: const Row(
-                                    //     children: [
-                                    //       Icon(Icons.camera_alt),
-                                    //       SizedBox(
-                                    //         width: 15,
-                                    //       ),
-                                    //       Text("Camera"),
-                                    //     ],
-                                    //   ),
-                                    // ),
-
+                                    InkWell(
+                                      onTap: () async {
+                                        Navigator.pop(context);
+                                        final PermissionStatus status =
+                                            await Permission.camera.status;
+                                        if (status.isGranted) {
+                                          var pickImage = await _getImage(
+                                              ImageSource.camera);
+                                          if (pickImage != null) {
+                                            setState(() {
+                                              ProfileImageUrl = "";
+                                              profileImage = pickImage;
+                                            });
+                                          }
+                                        } else if (status.isDenied) {
+                                          await [
+                                            Permission.storage,
+                                            Permission.camera,
+                                            Permission.photos,
+                                          ].request();
+                                        } else {
+                                          final snackBar = SnackBar(
+                                              behavior:
+                                                  SnackBarBehavior.floating,
+                                              backgroundColor:
+                                                  AppColor.goldenColor,
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 10,
+                                                      vertical: 10),
+                                              content: const Text(
+                                                "Please Allow Camera Permssion!",
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                              ));
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(snackBar);
+                                        }
+                                      },
+                                      child: const Row(
+                                        children: [
+                                          Icon(Icons.camera_alt),
+                                          SizedBox(
+                                            width: 15,
+                                          ),
+                                          Text("Camera"),
+                                        ],
+                                      ),
+                                    ),
                                     InkWell(
                                       onTap: () async {
                                         Navigator.pop(context);
@@ -264,7 +254,6 @@ class _PersonDeatilsPageState extends State<PersonDeatilsPage> {
                                             await Permission
                                                 .manageExternalStorage.status;
                                         if (status.isGranted) {
-                                        } else if (status.isDenied) {
                                           var pickImage = await _getImage(
                                               ImageSource.gallery);
                                           if (pickImage != null) {
@@ -273,8 +262,8 @@ class _PersonDeatilsPageState extends State<PersonDeatilsPage> {
                                               profileImage = pickImage;
                                             });
                                           }
-                                          Map<Permission, PermissionStatus>
-                                              statuses = await [
+                                        } else if (status.isDenied) {
+                                          await [
                                             Permission.storage,
                                             Permission.camera,
                                             Permission.photos,

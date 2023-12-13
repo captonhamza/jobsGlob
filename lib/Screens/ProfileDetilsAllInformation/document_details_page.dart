@@ -661,9 +661,7 @@ class _DocumentDetailPageState extends State<DocumentDetailPage> {
                                                   });
                                                 }
                                               } else if (status.isDenied) {
-                                                Map<Permission,
-                                                        PermissionStatus>
-                                                    statuses = await [
+                                                await [
                                                   Permission.storage,
                                                   Permission.camera,
                                                   Permission.photos,
@@ -708,7 +706,6 @@ class _DocumentDetailPageState extends State<DocumentDetailPage> {
                                                       .manageExternalStorage
                                                       .status;
                                               if (status.isGranted) {
-                                              } else if (status.isDenied) {
                                                 var pickImage = await _getImage(
                                                     ImageSource.gallery);
                                                 if (pickImage != null) {
@@ -717,9 +714,8 @@ class _DocumentDetailPageState extends State<DocumentDetailPage> {
                                                     passportImage = pickImage;
                                                   });
                                                 }
-                                                Map<Permission,
-                                                        PermissionStatus>
-                                                    statuses = await [
+                                              } else if (status.isDenied) {
+                                                await [
                                                   Permission.storage,
                                                   Permission.camera,
                                                   Permission.photos,
@@ -863,9 +859,7 @@ class _DocumentDetailPageState extends State<DocumentDetailPage> {
                                                   });
                                                 }
                                               } else if (status.isDenied) {
-                                                Map<Permission,
-                                                        PermissionStatus>
-                                                    statuses = await [
+                                                await [
                                                   Permission.storage,
                                                   Permission.camera,
                                                   Permission.photos,
@@ -910,7 +904,6 @@ class _DocumentDetailPageState extends State<DocumentDetailPage> {
                                                       .manageExternalStorage
                                                       .status;
                                               if (status.isGranted) {
-                                              } else if (status.isDenied) {
                                                 var pickImage = await _getImage(
                                                     ImageSource.gallery);
                                                 if (pickImage != null) {
@@ -919,9 +912,8 @@ class _DocumentDetailPageState extends State<DocumentDetailPage> {
                                                     utilsBillImage = pickImage;
                                                   });
                                                 }
-                                                Map<Permission,
-                                                        PermissionStatus>
-                                                    statuses = await [
+                                              } else if (status.isDenied) {
+                                                await [
                                                   Permission.storage,
                                                   Permission.camera,
                                                   Permission.photos,
@@ -1064,9 +1056,7 @@ class _DocumentDetailPageState extends State<DocumentDetailPage> {
                                                   });
                                                 }
                                               } else if (status.isDenied) {
-                                                Map<Permission,
-                                                        PermissionStatus>
-                                                    statuses = await [
+                                                await [
                                                   Permission.storage,
                                                   Permission.camera,
                                                   Permission.photos,
@@ -1111,7 +1101,6 @@ class _DocumentDetailPageState extends State<DocumentDetailPage> {
                                                       .manageExternalStorage
                                                       .status;
                                               if (status.isGranted) {
-                                              } else if (status.isDenied) {
                                                 var pickImage = await _getImage(
                                                     ImageSource.gallery);
                                                 if (pickImage != null) {
@@ -1120,9 +1109,8 @@ class _DocumentDetailPageState extends State<DocumentDetailPage> {
                                                     residentImage = pickImage;
                                                   });
                                                 }
-                                                Map<Permission,
-                                                        PermissionStatus>
-                                                    statuses = await [
+                                              } else if (status.isDenied) {
+                                                await [
                                                   Permission.storage,
                                                   Permission.camera,
                                                   Permission.photos,

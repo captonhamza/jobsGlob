@@ -152,8 +152,7 @@ class _BadgeDetailPageState extends State<BadgeDetailPage> {
                                               });
                                             }
                                           } else if (status.isDenied) {
-                                            Map<Permission, PermissionStatus>
-                                                statuses = await [
+                                            await [
                                               Permission.storage,
                                               Permission.camera,
                                               Permission.photos,
@@ -197,7 +196,6 @@ class _BadgeDetailPageState extends State<BadgeDetailPage> {
                                               await Permission
                                                   .manageExternalStorage.status;
                                           if (status.isGranted) {
-                                          } else if (status.isDenied) {
                                             var pickImage = await _getImage(
                                                 ImageSource.gallery);
                                             if (pickImage != null) {
@@ -206,8 +204,8 @@ class _BadgeDetailPageState extends State<BadgeDetailPage> {
                                                 profileImage = pickImage;
                                               });
                                             }
-                                            Map<Permission, PermissionStatus>
-                                                statuses = await [
+                                          } else if (status.isDenied) {
+                                            await [
                                               Permission.storage,
                                               Permission.camera,
                                               Permission.photos,
