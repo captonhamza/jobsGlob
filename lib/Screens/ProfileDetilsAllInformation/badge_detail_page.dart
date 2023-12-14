@@ -193,8 +193,7 @@ class _BadgeDetailPageState extends State<BadgeDetailPage> {
                                         onTap: () async {
                                           Navigator.pop(context);
                                           final PermissionStatus status =
-                                              await Permission
-                                                  .manageExternalStorage.status;
+                                              await Permission.photos.status;
                                           if (status.isGranted) {
                                             var pickImage = await _getImage(
                                                 ImageSource.gallery);

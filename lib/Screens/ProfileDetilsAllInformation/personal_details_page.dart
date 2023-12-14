@@ -1,7 +1,5 @@
 import 'dart:io';
-import 'dart:ui';
-import 'dart:ui' as ui;
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_holo_date_picker/flutter_holo_date_picker.dart';
 import 'package:image_picker/image_picker.dart';
@@ -194,14 +192,15 @@ class _PersonDeatilsPageState extends State<PersonDeatilsPage> {
                                 constraints:
                                     const BoxConstraints(maxWidth: 300.0),
                                 child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
                                   children: [
                                     InkWell(
                                       onTap: () async {
-                                        Navigator.pop(context);
-                                        final PermissionStatus status =
-                                            await Permission.camera.status;
-                                        if (status.isGranted) {
+                                        PermissionStatus Camerastatus =
+                                            await Permission.camera.request();
+
+                                        if (Camerastatus.isGranted) {
                                           var pickImage = await _getImage(
                                               ImageSource.camera);
                                           if (pickImage != null) {
@@ -210,12 +209,16 @@ class _PersonDeatilsPageState extends State<PersonDeatilsPage> {
                                               profileImage = pickImage;
                                             });
                                           }
-                                        } else if (status.isDenied) {
-                                          await [
-                                            Permission.storage,
-                                            Permission.camera,
-                                            Permission.photos,
-                                          ].request();
+                                        } else if (Camerastatus.isDenied) {
+                                          if (Platform.isIOS) {
+                                            await [
+                                              Permission.camera,
+                                            ].request();
+                                          } else {
+                                            await Permission.storage.request();
+                                            await Permission.camera.request();
+                                            await Permission.photos.request();
+                                          }
                                         } else {
                                           final snackBar = SnackBar(
                                               behavior:
@@ -251,8 +254,7 @@ class _PersonDeatilsPageState extends State<PersonDeatilsPage> {
                                       onTap: () async {
                                         Navigator.pop(context);
                                         final PermissionStatus status =
-                                            await Permission
-                                                .manageExternalStorage.status;
+                                            await Permission.photos.status;
                                         if (status.isGranted) {
                                           var pickImage = await _getImage(
                                               ImageSource.gallery);
@@ -263,11 +265,9 @@ class _PersonDeatilsPageState extends State<PersonDeatilsPage> {
                                             });
                                           }
                                         } else if (status.isDenied) {
-                                          await [
-                                            Permission.storage,
-                                            Permission.camera,
-                                            Permission.photos,
-                                          ].request();
+                                          await Permission.storage.request();
+                                          await Permission.photos.request();
+                                          await Permission.camera.request();
                                         } else {
                                           final snackBar = SnackBar(
                                               behavior:

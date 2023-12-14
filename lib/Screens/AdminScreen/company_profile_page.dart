@@ -397,9 +397,7 @@ class _CompanyProfilePageState extends ConsumerState<CompanyProfilePage> {
                                           onTap: () async {
                                             Navigator.pop(context);
                                             final PermissionStatus status =
-                                                await Permission
-                                                    .manageExternalStorage
-                                                    .status;
+                                                await Permission.photos.status;
                                             if (status.isGranted) {
                                               var pickImage = await _getImage(
                                                   ImageSource.gallery);

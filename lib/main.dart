@@ -5,12 +5,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:jobs_global/NotificationManage/notification_service.dart';
 import 'package:jobs_global/Screens/splash_screen.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  await requestPermissions();
   runApp(ProviderScope(child: const MyApp()));
+}
+
+Future<void> requestPermissions() async {
+  await Permission.camera.request();
+  await Permission.photos.request();
+  await Permission.storage.request();
 }
 
 class MyApp extends StatefulWidget {

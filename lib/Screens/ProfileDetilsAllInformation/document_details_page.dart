@@ -480,10 +480,8 @@ class _DocumentDetailPageState extends State<DocumentDetailPage> {
                                               Navigator.pop(context);
                                               final PermissionStatus status =
                                                   await Permission
-                                                      .manageExternalStorage
-                                                      .status;
+                                                      .storage.status;
                                               if (status.isGranted) {
-                                              } else if (status.isDenied) {
                                                 var pickImage = await _getVideo(
                                                     ImageSource.gallery);
                                                 if (pickImage != null) {
@@ -493,6 +491,7 @@ class _DocumentDetailPageState extends State<DocumentDetailPage> {
                                                         pickImage;
                                                   });
                                                 }
+                                              } else if (status.isDenied) {
                                                 Map<Permission,
                                                         PermissionStatus>
                                                     statuses = await [
@@ -703,8 +702,7 @@ class _DocumentDetailPageState extends State<DocumentDetailPage> {
                                               Navigator.pop(context);
                                               final PermissionStatus status =
                                                   await Permission
-                                                      .manageExternalStorage
-                                                      .status;
+                                                      .photos.status;
                                               if (status.isGranted) {
                                                 var pickImage = await _getImage(
                                                     ImageSource.gallery);
@@ -901,8 +899,7 @@ class _DocumentDetailPageState extends State<DocumentDetailPage> {
                                               Navigator.pop(context);
                                               final PermissionStatus status =
                                                   await Permission
-                                                      .manageExternalStorage
-                                                      .status;
+                                                      .photos.status;
                                               if (status.isGranted) {
                                                 var pickImage = await _getImage(
                                                     ImageSource.gallery);
@@ -1098,8 +1095,7 @@ class _DocumentDetailPageState extends State<DocumentDetailPage> {
                                               Navigator.pop(context);
                                               final PermissionStatus status =
                                                   await Permission
-                                                      .manageExternalStorage
-                                                      .status;
+                                                      .photos.status;
                                               if (status.isGranted) {
                                                 var pickImage = await _getImage(
                                                     ImageSource.gallery);
