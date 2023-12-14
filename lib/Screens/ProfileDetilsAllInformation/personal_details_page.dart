@@ -197,6 +197,7 @@ class _PersonDeatilsPageState extends State<PersonDeatilsPage> {
                                   children: [
                                     InkWell(
                                       onTap: () async {
+                                        Navigator.pop(context);
                                         PermissionStatus Camerastatus =
                                             await Permission.camera.request();
 

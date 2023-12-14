@@ -11,14 +11,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  await requestPermissions();
-  runApp(ProviderScope(child: const MyApp()));
-}
 
-Future<void> requestPermissions() async {
-  await Permission.camera.request();
-  await Permission.photos.request();
-  await Permission.storage.request();
+  runApp(ProviderScope(child: const MyApp()));
 }
 
 class MyApp extends StatefulWidget {

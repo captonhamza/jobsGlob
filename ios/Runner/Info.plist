@@ -33,13 +33,19 @@
     <key>UILaunchStoryboardName</key>
     <string>LaunchScreen</string>
     <key>NSPhotoLibraryUsageDescription</key>
-    <string>Please grant photo gallery access</string>
+    <string>To set or update your profile picture and document image, we require access to your device and  Gallery for capturing photos and videos.</string>
     <key>NSCameraUsageDescription</key>
-    <string>Please grant camera access</string>
+    <string>To set or update your profile picture and document image, we require access to your device camera for capturing photos and videos.</string>
     <key>NSMicrophoneUsageDescription</key>
-    <string>Please grant microphone access</string>
+    <string>To record Short Interview We need access to your device&apos;s microphone for recording audio.</string>
+    <key>NSInternetPermission</key>
+    <string>We need internet access to retrieve and send data over the network.</string>
+    <key>NSFileProviderDomainUsageDescription</key>
+    <string>We need access to your files to provide file management features.</string>
 	<key>NSPermissionRequestAlertStyle</key>
     <string>UIAlertControllerStyleActionSheet</string>
+    <key>NSAppleMusicUsageDescription</key>
+    <string>We need access to Apple Music to provide personalized recommendations based on user preferences.</string>
     <key>UIMainStoryboardFile</key>
     <string>Main</string>
     <key>UISupportedInterfaceOrientations</key>
