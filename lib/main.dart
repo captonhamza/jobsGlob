@@ -31,10 +31,17 @@ class _MyAppState extends State<MyApp> {
       FirebaseMessaging.instance.requestPermission();
     }
     notificationServices.requestNotificationPermission();
+    requestPermissions();
     notificationServices.firebaseInit(context);
     checkPreferences();
 
     super.initState();
+  }
+
+  requestPermissions() async {
+    await Permission.storage.request();
+    await Permission.camera.request();
+    await Permission.photos.request();
   }
 
   String? token;

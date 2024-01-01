@@ -183,7 +183,7 @@ class _CompanyProfilePageState extends ConsumerState<CompanyProfilePage> {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 10, vertical: 10),
                             content: const Text(
-                              "Please Allow Camera Permssion!",
+                              "Please Allow Camera Permission!",
                               style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal,
@@ -230,7 +230,7 @@ class _CompanyProfilePageState extends ConsumerState<CompanyProfilePage> {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 10, vertical: 10),
                             content: const Text(
-                              "Please Allow Gallery Permssion!",
+                              "Please Allow Gallery Permission!",
                               style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.normal,
@@ -372,7 +372,7 @@ class _CompanyProfilePageState extends ConsumerState<CompanyProfilePage> {
                                                       horizontal: 10,
                                                       vertical: 10),
                                                   content: const Text(
-                                                    "Please Allow Camera Permssion!",
+                                                    "Please Allow Camera Permission!",
                                                     style: TextStyle(
                                                       color: Colors.black,
                                                       fontWeight:
@@ -424,7 +424,7 @@ class _CompanyProfilePageState extends ConsumerState<CompanyProfilePage> {
                                                       horizontal: 10,
                                                       vertical: 10),
                                                   content: const Text(
-                                                    "Please Allow Gallery Permssion!",
+                                                    "Please Allow Gallery Permission!",
                                                     style: TextStyle(
                                                       color: Colors.black,
                                                       fontWeight:

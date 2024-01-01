@@ -1,22 +1,16 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
-import 'dart:io';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:jobs_global/Widgets/custom_button.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jobs_global/Utils/global.dart';
 import 'dart:convert';
 
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:jobs_global/Screens/AdminScreen/admin_screen.dart';
-import 'package:jobs_global/Screens/bottom_navigator_screen.dart';
 import 'package:jobs_global/Widgets/custom_button.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -67,6 +61,11 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
   CityModel? selectedCityValue;
   @override
   void initState() {
+    setState(() {
+      countryList.sort((a, b) => a.countryName.compareTo(b.countryName));
+
+      // cityData.sort((a, b) => a['city_name'].compareTo(b['city_name']));
+    });
     setInitialValue();
     super.initState();
   }
@@ -293,6 +292,10 @@ class _CreateNewPostPageState extends State<CreateNewPostPage> {
                                     .map((data) => CityModel(data['id'],
                                         data['city_name'], data['region_id']))
                                     .toList();
+                                setState(() {
+                                  cityList.sort((a, b) =>
+                                      a.cityName.compareTo(b.cityName));
+                                });
                               });
                             },
                             items: countryList

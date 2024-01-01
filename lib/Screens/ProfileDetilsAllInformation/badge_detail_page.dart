@@ -168,7 +168,7 @@ class _BadgeDetailPageState extends State<BadgeDetailPage> {
                                                         horizontal: 10,
                                                         vertical: 10),
                                                 content: const Text(
-                                                  "Please Allow Camera Permssion!",
+                                                  "Please Allow Camera Permission!",
                                                   style: TextStyle(
                                                     color: Colors.black,
                                                     fontWeight:
@@ -220,7 +220,7 @@ class _BadgeDetailPageState extends State<BadgeDetailPage> {
                                                         horizontal: 10,
                                                         vertical: 10),
                                                 content: const Text(
-                                                  "Please Allow Gallery Permssion!",
+                                                  "Please Allow Gallery Permission!",
                                                   style: TextStyle(
                                                     color: Colors.black,
                                                     fontWeight:
