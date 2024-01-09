@@ -110,9 +110,9 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
           matchDataUserLoginDeatils[0]['documentInfoValid'] == "true"
               ? true
               : false;
-      bankInfoValid = matchDataUserLoginDeatils[0]['bankInfoValid'] == "true"
-          ? true
-          : false;
+      // bankInfoValid = matchDataUserLoginDeatils[0]['bankInfoValid'] == "true"
+      //     ? true
+      //     : false;
       badgeInfoValid = matchDataUserLoginDeatils[0]['badgeInfoValid'] == "true"
           ? true
           : false;
@@ -729,31 +729,31 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                                   ),
                                 ),
                               ),
-                              Card(
-                                margin: const EdgeInsets.only(top: 20),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8)),
-                                elevation: 5,
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8)),
-                                  width: double.infinity,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      CustomHeaderTitle("BANK DETAIL"),
-                                      CustomTitlewithData("Sort Code",
-                                          candidateProfileData!.bankSortCode),
-                                      CustomTitlewithData("Account No",
-                                          candidateProfileData!.accountNumber),
-                                      CustomTitlewithData("Name of Account",
-                                          candidateProfileData!.nameOfAccount),
-                                    ],
-                                  ),
-                                ),
-                              ),
+                              // Card(
+                              //   margin: const EdgeInsets.only(top: 20),
+                              //   shape: RoundedRectangleBorder(
+                              //       borderRadius: BorderRadius.circular(8)),
+                              //   elevation: 5,
+                              //   child: Container(
+                              //     decoration: BoxDecoration(
+                              //         borderRadius: BorderRadius.circular(8)),
+                              //     width: double.infinity,
+                              //     child: Column(
+                              //       crossAxisAlignment:
+                              //           CrossAxisAlignment.start,
+                              //       mainAxisAlignment: MainAxisAlignment.start,
+                              //       children: [
+                              //         CustomHeaderTitle("BANK DETAIL"),
+                              //         CustomTitlewithData("Sort Code",
+                              //             candidateProfileData!.bankSortCode),
+                              //         CustomTitlewithData("Account No",
+                              //             candidateProfileData!.accountNumber),
+                              //         CustomTitlewithData("Name of Account",
+                              //             candidateProfileData!.nameOfAccount),
+                              //       ],
+                              //     ),
+                              //   ),
+                              // ),
                               Card(
                                 margin: const EdgeInsets.only(top: 20),
                                 shape: RoundedRectangleBorder(
@@ -926,23 +926,23 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                           const SizedBox(
                             height: 5,
                           ),
-                          InkWell(
-                              onTap: () async {
-                                Navigator.of(context)
-                                    .push(MaterialPageRoute(
-                                        builder: (_) => BankDetailPage(
-                                              candidateProfileData:
-                                                  candidateProfileData,
-                                            )))
-                                    .then((value) async {
-                                  await getDataBaseRecord();
-                                });
-                              },
-                              child: CustomCardDesign("Step 5", "Bank Deatil",
-                                  validate: bankInfoValid)),
-                          const SizedBox(
-                            height: 5,
-                          ),
+                          // InkWell(
+                          //     onTap: () async {
+                          //       Navigator.of(context)
+                          //           .push(MaterialPageRoute(
+                          //               builder: (_) => BankDetailPage(
+                          //                     candidateProfileData:
+                          //                         candidateProfileData,
+                          //                   )))
+                          //           .then((value) async {
+                          //         await getDataBaseRecord();
+                          //       });
+                          //     },
+                          //     child: CustomCardDesign("Step 5", "Bank Deatil",
+                          //         validate: bankInfoValid)),
+                          // const SizedBox(
+                          //   height: 5,
+                          // ),
                           InkWell(
                               onTap: () async {
                                 Navigator.of(context)
@@ -955,7 +955,7 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                                   await getDataBaseRecord();
                                 });
                               },
-                              child: CustomCardDesign("Step 6", "Badge Deatils",
+                              child: CustomCardDesign("Step 5", "Badge Deatils",
                                   validate: badgeInfoValid)),
                           const SizedBox(
                             height: 18,
@@ -966,11 +966,14 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
                               textSize: 20,
                               onPressed: () async {
                                 if (personInfoValid &&
-                                    addressInfoValid &&
-                                    documentInfoValid &&
-                                    emergencyInfoValid &&
-                                    badgeInfoValid &&
-                                    bankInfoValid) {
+                                        addressInfoValid &&
+                                        documentInfoValid &&
+                                        emergencyInfoValid &&
+                                        badgeInfoValid
+                                    // &&
+                                    // bankInfoValid
+
+                                    ) {
                                   UploadProfileApi();
                                 } else {
                                   final snackBar = SnackBar(
@@ -1089,9 +1092,13 @@ class _ProfilePageState extends ConsumerState<ProfilePage> {
           matchDataUserLoginDeatils[0]['visaRewquired'].toString() == "Yes"
               ? "1"
               : "2",
-      'name_of_account': matchDataUserLoginDeatils[0]['accountName'].toString(),
-      'account_number': matchDataUserLoginDeatils[0]['accountNo'].toString(),
-      'bank_sort_code': matchDataUserLoginDeatils[0]['sortCode'].toString(),
+      // 'name_of_account': matchDataUserLoginDeatils[0]['accountName'].toString(),
+      // 'account_number': matchDataUserLoginDeatils[0]['accountNo'].toString(),
+      // 'bank_sort_code': matchDataUserLoginDeatils[0]['sortCode'].toString(),
+
+      'name_of_account': "".toString(),
+      'account_number': "".toString(),
+      'bank_sort_code': "".toString(),
       'e_contact_phone':
           matchDataUserLoginDeatils[0]['emergencyPhoneNo'].toString(),
       'e_contact_relation':

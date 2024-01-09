@@ -72,10 +72,7 @@ class DatabaseHelper {
          shortIntro Text,
         insuranceNo Text,
         utrNo Text,
-        sortCode Text,
-        accountNo Text,
-        accountName Text,
-         bankInfoValid Text,
+      
         badgeImage Text,
         badgeType Text,
         badgeNo Text,
@@ -83,6 +80,11 @@ class DatabaseHelper {
          badgeInfoValid Text
       )
     ''');
+
+    // sortCode Text,
+    //   accountNo Text,
+    //   accountName Text,
+    //    bankInfoValid Text,
 
     await db.execute('''
       CREATE TABLE  $table2 (
