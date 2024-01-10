@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 
@@ -69,7 +70,8 @@ class _LoginScreenState extends State<LoginScreen> {
               .post(Uri.parse('${Helper().get_api_urlold()}Login'), body: {
             "user_email": textEditingControllerEmail.text.trim().toString(),
             "password": passwordEditControll.text.trim().toString(),
-            "fcm_token": getToken ?? ""
+            "fcm_token": getToken ?? "",
+            "device_type": Platform.isAndroid ? "Android" : "IOS"
           });
 
           //  print(response.body);
