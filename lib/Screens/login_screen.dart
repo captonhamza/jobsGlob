@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:jobs_global/NotificationManage/notification_service.dart';
 import 'package:jobs_global/Screens/AdminScreen/admin_screen.dart';
 import 'package:jobs_global/Screens/bottom_navigator_screen.dart';
 import 'package:jobs_global/Screens/signUp_screen.dart';
@@ -38,6 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
     super.initState();
   }
 
+  final NotificationServices notificationServices = NotificationServices();
   SharedPreferences? prefs;
 
   Future<void> LoginApiCall() async {
@@ -46,6 +48,17 @@ class _LoginScreenState extends State<LoginScreen> {
     });
     prefs = await SharedPreferences.getInstance();
     var getToken = prefs!.getString("token");
+
+    if (getToken == null || getToken.isEmpty || getToken == "") {
+      await notificationServices.getDeviceToken().then((value) {
+        print("Device Token");
+        print(value);
+        getToken = value;
+      });
+      notificationServices.foregroundMessage();
+
+      prefs!.setString("token", getToken!);
+    }
 
     if (!await InternetConnectionChecker().hasConnection) {
       setState(() {
